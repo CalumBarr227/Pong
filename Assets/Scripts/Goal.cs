@@ -10,13 +10,15 @@ public class Goal : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            if(leftGoal == true)
+            GameManager gameManager = FindObjectOfType<GameManager>();
+
+            if (leftGoal == true)
             {
-                Debug.Log("Right Player Scored!");
+                gameManager.RightPlayerScore();
             }
             else
             {
-                Debug.Log("Left Player Scored!");
+                gameManager.LeftPlayerScore();
             }
         }
         collision.transform.position = Vector2.zero;
