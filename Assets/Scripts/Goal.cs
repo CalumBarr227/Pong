@@ -21,6 +21,7 @@ public class Goal : MonoBehaviour
                 gameManager.LeftPlayerScore();
             }
         }
-        collision.transform.position = Vector2.zero;
+        //collision.transform.position = Vector2.zero;
+        collision.GetComponent<Ball>().ResetBall();
     }
 }

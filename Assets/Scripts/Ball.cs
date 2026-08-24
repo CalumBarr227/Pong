@@ -10,14 +10,21 @@ public class Ball : MonoBehaviour
     {
         int direction = Random.Range(0, 2);
 
-        if(direction == 0)
+        if (direction == 0)
         {
-        speed = -speed;
+            speed = -speed;
         }
 
         //GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 2);
 
 
+    }
+
+    public void ResetBall()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        transform.position = Vector2.zero;
+        Invoke("Start", 1f);
     }
 }
