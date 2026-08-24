@@ -16,5 +16,10 @@ public class LeftPaddle : MonoBehaviour
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
+
+        transform.position = new Vector2(
+            transform.position.x,
+            Mathf.Clamp(transform.position.y, -3.5f, 3.5f)
+        );
     }
 }
