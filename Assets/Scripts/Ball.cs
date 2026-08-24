@@ -6,10 +6,14 @@ public class Ball : MonoBehaviour
 {
     public float speed = 5f;
     Rigidbody2D rb;
+    public AudioClip paddleSound;
+    public AudioClip wallSound;
+    AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         int direction = Random.Range(0, 2);
 
         if (direction == 0)
@@ -35,6 +39,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Paddle"))
         {
+            audioSource.PlayOneShot(paddleSound);
             float difference = transform.position.y - collision.transform.position.y;
 
             if(collision.transform.position.x > 0)
@@ -45,6 +50,10 @@ public class Ball : MonoBehaviour
             {
                 rb.velocity = new Vector2(speed, difference * 3);
             }
+        }
+        else if(collision.gameObject.CompareTag("Wall"))
+        {
+            audioSource.PlayOneShot(wallSound);
         }
     }
 }
