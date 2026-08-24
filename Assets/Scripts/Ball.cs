@@ -12,9 +12,12 @@ public class Ball : MonoBehaviour
 
         if(direction == 0)
         {
-            speed = -speed;
+        speed = -speed;
         }
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 2);
+
+
     }
 }
