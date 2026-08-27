@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
     public GameObject winnerScreen;
     public TextMeshProUGUI winnerText;
     public bool winnerScreenActive = false;
-
+    public TextMeshProUGUI countdownText;
     int leftScore = 0;
     int rightScore = 0;
+    public Ball ball;
 
     void Start()
     {
         winnerScreen.SetActive(false);
+        StartCoroutine(Countdown());
     }
     public void LeftPlayerScore()
     {
@@ -59,5 +61,24 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator Countdown()
+    {
+        countdownText.text = "3";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "";
+
+        //ball.StartBall();
     }
 }

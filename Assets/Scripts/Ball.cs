@@ -25,8 +25,23 @@ public class Ball : MonoBehaviour
             rb.velocity = new Vector2(speed, Random.Range(-2f, 2f));
         }
     }
+
             //GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
             //GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 2);
+
+    //public void StartBall()
+    //{
+    //    int direction = Random.Range(0, 2);
+
+    //    if (direction == 0)
+    //    {
+    //        rb.velocity = new Vector2(-speed, Random.Range(-2f, 2f));
+    //    }
+    //    else
+    //    {
+    //        rb.velocity = new Vector2(speed, Random.Range(-2f, 2f));
+    //    }
+    //}
 
     public void ResetBall()
     {
