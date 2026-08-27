@@ -19,7 +19,7 @@ public class RightPaddle : MonoBehaviour
 
         transform.position = new Vector2(
             transform.position.x,
-            Mathf.Clamp(transform.position.y, -3.5f, 3.5f)
+            Mathf.Clamp(transform.position.y, -3.9f, 3.9f)
         );
     }
 }

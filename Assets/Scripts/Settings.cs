@@ -10,8 +10,10 @@ public class Settings : MonoBehaviour
     void Start()
     {
         float savedVolume = PlayerPrefs.GetFloat("Volume", 1f);
-        AudioListener.volume = volumeSlider.value;
-        volumeSlider.value = AudioListener.volume;
+        //AudioListener.volume = volumeSlider.value;
+        //volumeSlider.value = AudioListener.volume;
+        AudioListener.volume = savedVolume;
+        volumeSlider.value = savedVolume;
 
     }
 
@@ -19,5 +21,6 @@ public class Settings : MonoBehaviour
     {
         AudioListener.volume = volumeSlider.value;
         PlayerPrefs.SetFloat("Volume", volumeSlider.value);
+        PlayerPrefs.Save();
     }
 }
