@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     int leftScore = 0;
     int rightScore = 0;
     public Ball ball;
+    public GameObject pauseMenu;
+    public bool gamePaused = false;
 
     void Start()
     {
@@ -80,5 +82,34 @@ public class GameManager : MonoBehaviour
         countdownText.text = "";
 
         //ball.StartBall();
+    }
+
+    public void PauseGame()
+    {
+        gamePaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        gamePaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if ((gamePaused))
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
     }
 }
